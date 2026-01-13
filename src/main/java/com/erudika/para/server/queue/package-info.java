@@ -16,18 +16,6 @@
  * For issues and patches go to: https://github.com/erudika
  */
 /**
- * AWSQueue.
+ * Queue package.
  */
-module com.erudika.para.server.queue.sqs {
-	requires com.erudika.para.core;
-	requires org.apache.commons.lang3;
-	requires com.fasterxml.jackson.databind;
-	requires org.slf4j;
-	requires software.amazon.awssdk.auth;
-	requires software.amazon.awssdk.core;
-	requires software.amazon.awssdk.regions;
-	requires software.amazon.awssdk.awscore;
-	requires software.amazon.awssdk.services.sts;
-	requires software.amazon.awssdk.services.sqs;
-	provides com.erudika.para.core.queue.Queue with com.erudika.para.server.queue.AWSQueue;
-}
+package com.erudika.para.server.queue;

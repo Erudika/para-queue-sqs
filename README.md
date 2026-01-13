@@ -12,7 +12,7 @@
 It enables your application to store objects directly to a data store (NoSQL) or any relational database (RDBMS)
 and it also automatically indexes those objects and makes them searchable.
 
-This plugin allows Para to store objects in AWS SQS.
+This plugin allows Para to cache objects in Amazon SQS.
 
 ## Documentation
 
@@ -47,7 +47,7 @@ para.indexing_sync_interval_sec = 10
 
 Finally, set the config property:
 ```ini
-para.dao = "AWSQueue"
+para.q = "AWSQueue"
 ```
 This could be a Java system property or part of a `application.conf` file on the classpath.
 This tells Para to use the Amazon SQS `Queue` implementation instead of the default one.
