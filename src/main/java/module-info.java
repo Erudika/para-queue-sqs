@@ -25,6 +25,7 @@ module com.erudika.para.server.queue.sqs {
 	requires org.slf4j;
 	requires software.amazon.awssdk.auth;
 	requires software.amazon.awssdk.core;
+	requires software.amazon.awssdk.http;
 	requires software.amazon.awssdk.regions;
 	requires software.amazon.awssdk.awscore;
 	requires software.amazon.awssdk.services.sts;

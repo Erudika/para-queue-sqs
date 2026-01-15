@@ -52,6 +52,12 @@ public final class AWSQueueUtils {
 	private static final String LOCAL_ENDPOINT = "http://localhost:9324";
 	private static final Logger logger = LoggerFactory.getLogger(AWSQueueUtils.class);
 
+	static {
+		if (!Para.getConfig().replicaRegions().isEmpty()) {
+			Para.addIOListener(new GlobalIndexingIOListener());
+		}
+	}
+
 	/**
 	 * No-args constructor.
 	 */
