@@ -81,6 +81,12 @@ public class GlobalIndexingIOListener implements IOListener {
 							singletonList(buildPayloadAsJSON("delete_index_op", app.getAppIdentifier(), app)));
 				}
 			});
+			App.addReindexListener((App app) -> {
+				if (!app.isRootApp()) {
+					sendIndexPayloadToOtherRegions(Collections.
+							singletonList(buildPayloadAsJSON("rebuild_index_op", app.getAppIdentifier(), app)));
+				}
+			});
 			Para.asyncExecutePeriodically(() -> sendMessagesInBatch(), 0,
 					Para.getConfig().globalSyncIntervalSec(), TimeUnit.SECONDS);
 		}
@@ -111,13 +117,6 @@ public class GlobalIndexingIOListener implements IOListener {
 					sendMessagesInBatch();
 				}
 			}
-		}
-	}
-
-	public static void triggerReindexInOtherRegions(App app) {
-		if (app != null) {
-			sendIndexPayloadToOtherRegions(Collections.
-					singletonList(buildPayloadAsJSON("rebuild_index_op", app.getAppIdentifier(), app)));
 		}
 	}
 
